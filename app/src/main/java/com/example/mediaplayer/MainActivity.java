@@ -3,21 +3,11 @@ package com.example.mediaplayer;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton img;
     SeekBar seek;
     Boolean isPlaying = true;
-    String[] SongName = {"Vaathi Coming - Master", "Antha Kanna Paathaaka", "Kutty Story", "Quit Pannuda", "Polakattum Para Para", "Pona Pogattum", "Vaathi Raid", "Master - The Blaster", "Beat Of Master (Instrumental)" };
+    String[] SongName = {"Vaathi Coming - Master", "Antha Kanna Paathaaka - Master", "Kutty Story - Master", "Quit Pannuda - Master", "Polakattum Para Para - Master", "Pona Pogattum - Master", "Vaathi Raid - Master", "Master - The Blaster - Master", "Beat Of Master (Instrumental) - Master" };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
             if(isPlaying) {
                 img.setImageDrawable(getDrawable(R.drawable.play));
                 seek.setThumb(getDrawable(R.drawable.pause_circle));
-
                 isPlaying=false;
             }else{
                 img.setImageDrawable(getDrawable(R.drawable.pause));
@@ -51,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter(this, SongName);
         list.setAdapter(customAdapter);
         list.isScrollingCacheEnabled();
-        list.setOnItemClickListener((parent, view, position, id) ->
-                       sname.setText(SongName[position]));
+        list.setOnItemClickListener((parent, view, position, id) -> sname.setText(SongName[position]));
     }
+
+
 }
